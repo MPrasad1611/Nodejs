@@ -1,1 +1,4 @@
-console.log("Mod1")
+function sample(){
+    console.log("Hello World")
+}
+module.exports={sample:sample}

@@ -1,3 +1,2 @@
-require("./mod1")
-require("./mod2")
-console.log("Hello World");
+const app=require("./mod1")
+app.sample();
