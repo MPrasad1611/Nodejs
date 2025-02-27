@@ -6,11 +6,29 @@ const app = require("http");
 let obj = { name: "Prasad", city: "vizag" };
 const server = app.createServer((req, res) => {
   if (req.method == "GET") {
-    res.writeHead(201, "responsive received", {
-      "content-type": "application/json",
-    });
-    res.write(JSON.stringify(obj));
-    res.end();
+    if(req.url=="/home"){
+        res.writeHead(201, "responsive received", {
+            "content-type": "application/json",
+          });
+          res.write("Welcome to home page");
+          res.end();
+    }
+    else if(req.url=="/about") {
+        res.writeHead(201, "responsive received", {
+            "content-type": "application/json",
+          });
+          res.write("Welcome to About page");
+          res.end();
+
+    }
+    else{
+        res.writeHead(201, "responsive received", {
+            "content-type": "application/json",
+          });
+          res.write("Welcome to other page");
+          res.end();
+    }
+    
   }
   else{
      res.end("invalid request")
