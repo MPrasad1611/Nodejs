@@ -5,11 +5,16 @@ const app = require("http");
 // })
 let obj = { name: "Prasad", city: "vizag" };
 const server = app.createServer((req, res) => {
-  res.writeHead(201, "responsive received", {
-    "content-type": "application/json",
-  });
-  res.write(JSON.stringify(obj));
-  res.end();
+  if (req.method == "GET") {
+    res.writeHead(201, "responsive received", {
+      "content-type": "application/json",
+    });
+    res.write(JSON.stringify(obj));
+    res.end();
+  }
+  else{
+     res.end("invalid request")
+  }
 });
 server.listen("3101", () => {
   console.log("it's Working");
